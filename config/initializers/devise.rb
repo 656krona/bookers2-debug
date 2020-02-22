@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '91b046faeb3bd6ce22bfd27a1970fea1c6aa152911f56a44db4c4d5e4ee7da026248e409f52e776874e06c713207d702e2b5fe68213dc13bfe48a1eadd581476'
+  # config.secret_key = 'acf31b72dcac0043fb7839236b6ee06445910471bc32ebc7a3eb8bb45cebc37787203403e12c04fa969bffc6b3f642e4a5213ec272ee01e07b32dc003589b584'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -52,12 +52,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [:email]
+  config.case_insensitive_keys = [:name]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [:email]
+  config.strip_whitespace_keys = [:name]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -114,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'b8567da37db77e53e43bba892766cc88f31ddc56039e195383049385add327f4b48d8e5bc51e43651bf95deaed139e63f727893e694edbff291e5e5fce767954'
+  # config.pepper = 'a4e99ef1eab5ffcb6affe8840a86a354689a5534dc9c94e1fc7de5e60b7b975a204947857d0b12ee0c549d6a894d1ebdd2f4ed3597f1bf9630927bde3895403b'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -126,8 +126,11 @@ Devise.setup do |config|
   # A period that the user is allowed to access the website even without
   # confirming their account. For instance, if set to 2.days, the user will be
   # able to access the website for two days without confirming their account,
-  # access will be blocked just in the third day. Default is 0.days, meaning
-  # the user cannot access the website without confirming their account.
+  # access will be blocked just in the third day.
+  # You can also set it to nil, which will allow the user to access the website
+  # without confirming their account.
+  # Default is 0.days, meaning the user cannot access the website without
+  # confirming their account.
   # config.allow_unconfirmed_access_for = 2.days
 
   # A period that the user is allowed to confirm their account before their
@@ -287,4 +290,10 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+
+  # ==> Configuration for :registerable
+
+  # When set to false, does not sign a user in automatically after their password is
+  # changed. Defaults to true, so a user is signed in automatically after changing a password.
+  # config.sign_in_after_change_password = true
 end
